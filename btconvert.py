@@ -9,10 +9,13 @@ Preparing input files:
 
 Windows
 
-1. Export 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Devices'
-   to <source_dir>/'BluetoothDevices.reg'.
-2. Export 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys'
-   to <source_dir>/'BluetoothKeys.reg'.
+Use SysInternals toold to export the registry keys responsible for Bluetooth configuration.
+Note: use full directory paths!
+
+psexec -s -i reg export HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BTHPORT\
+                        Parameters\Devices <source_dir_full_path>\BluetoothDevices.reg
+psexec -s -i reg export HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BTHPORT\
+                        Parameters\Keys <source_dir_full_path>\BluetoothKeys.reg
 
 Linux
 
