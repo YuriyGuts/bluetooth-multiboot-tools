@@ -482,7 +482,8 @@ class WindowsBluetoothConfigAdapter(BluetoothConfigAdapter):
             for device_mac_str, device_meta in device_keys.items():
                 try:
                     device_mac = MACAddress.parse(device_mac_str)
-                except ValueError:
+                    device_meta.get('LTK')
+                except (ValueError, AttributeError):
                     continue
 
                 key = BluetoothKey(
